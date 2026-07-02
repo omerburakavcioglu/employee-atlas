@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(command -v pdftotext python3)",
+      "Bash(python3 -c \"import pypdf\")",
+      "Bash(python3 -m pip install pypdf --quiet)",
+      "Bash(python3 -c ' *)",
+      "Bash(ls -R \"/Users/omerburakavcioglu/Desktop/tav\" 2>/dev/null | head -40; echo \"---\"; ls \"/Users/omerburakavcioglu/Desktop/brand_assets\" 2>/dev/null; ls \"/Users/omerburakavcioglu/Desktop/employee-atlas/brand_assets\" 2>/dev/null)",
+      "Bash(command -v node npm npx supabase docker)",
+      "Bash(supabase --version)",
+      "Bash(docker info *)",
+      "Bash(npx create-next-app@latest employee-atlas --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --turbopack --use-npm --yes)"
+    ]
+  }
+}
