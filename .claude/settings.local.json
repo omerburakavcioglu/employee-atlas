@@ -9,7 +9,28 @@
       "Bash(command -v node npm npx supabase docker)",
       "Bash(supabase --version)",
       "Bash(docker info *)",
-      "Bash(npx create-next-app@latest employee-atlas --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --turbopack --use-npm --yes)"
+      "Bash(npx create-next-app@latest employee-atlas --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --turbopack --use-npm --yes)",
+      "Bash(npm install *)",
+      "Bash(supabase init *)",
+      "Bash(supabase start *)",
+      "Bash(npx shadcn@latest init -y -b neutral)",
+      "Bash(npx shadcn@4.11.0 init -y -b neutral)",
+      "Bash(npx shadcn@latest init -y -b radix)",
+      "Bash(npx shadcn@latest init --help)",
+      "Bash(npx shadcn@latest init -y -f -b radix -p base-nova)",
+      "Bash(npx shadcn@latest init -y -f -b radix -p nova)",
+      "Bash(npx shadcn@latest add button card input label badge avatar sheet dialog select table tabs dropdown-menu separator skeleton sonner tooltip checkbox textarea popover command form alert)",
+      "Bash(supabase status *)",
+      "Bash(python3 \"/private/tmp/claude-501/-Users-omerburakavcioglu-Desktop-employee-atlas/e1cb3bc6-650e-4def-b4a1-d46567e8fa2e/scratchpad/gen_seed.py\")",
+      "Bash(supabase db *)",
+      "Bash(curl -s -X POST \"http://127.0.0.1:54321/auth/v1/token?grant_type=password\" -H \"apikey: sb_publishable_ACJWlzQHlZjBrEguHvfOxg_3BJgxAaH\" -H \"Content-Type: application/json\" -d '{\"email\":\"admin@tav.aero\",\"password\":\"TAVatlas2026!\"}')",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\('login ok, user:', d.get\\('user',{}\\).get\\('email'\\) or d\\)\")",
+      "Bash(supabase gen *)",
+      "Bash(npx tsc *)",
+      "Bash(echo \"exit: $?\")",
+      "Bash(npm run *)",
+      "Bash(psql \"postgresql://postgres:postgres@127.0.0.1:54322/postgres\" -t -c \"select field_key, visible_to_roles from field_visibility_settings where field_key in \\('hobbies','phone'\\);\")",
+      "Bash(psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -t -c ' *)"
     ]
   }
 }
