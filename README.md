@@ -15,6 +15,44 @@ user's tenant only.
 Seeded demo tenants: **TAV Airports** (airport operations) and **Turkcell**
 (telecommunications and technology).
 
+## Bootcamp — Grup 43
+
+| | |
+| --- | --- |
+| **Takım numarası** | 43 |
+| **Ürün adı** | Employee Atlas |
+| **Canlı demo** | https://employee-atlas.vercel.app/ |
+| **Sprint 1 dokümantasyonu** | [docs/sprints/sprint-1/sprint1.md](docs/sprints/sprint-1/sprint1.md) |
+
+### Takım üyeleri ve rolleri
+
+| İsim | Rol |
+| --- | --- |
+| Buşra Eşkara | Scrum Master |
+| Ahmet Berke Çiftçi | Product Owner |
+| Hümeyra Maden | Developer |
+| Emine Soyuçok | Developer |
+| Ömer Burak Avcıoğlu | Developer |
+
+### Hedef kitle
+
+Employee Atlas, çok lokasyonlu büyük ölçekli şirketler — holdingler,
+havalimanı işletmecileri, telekom operatörleri, perakende zincirleri,
+fabrikalar ve benzeri kuruluşlar — için tasarlanmıştır. Bu organizasyonların
+İK departmanları, yöneticileri ve teknik koordinatörleri; farklı şehir,
+ülke, ofis, havalimanı, şube ve kampüslerdeki iş gücünü keşfetmek, yönetmek
+ve analiz etmek için platformu kullanır.
+
+### Product Backlog ve sprint kayıtları
+
+- **Sprint 1 özeti:** [docs/sprints/sprint-1/sprint1.md](docs/sprints/sprint-1/sprint1.md)
+- **Sprint Board:** [docs/sprints/sprint-1/sprint-board.md](docs/sprints/sprint-1/sprint-board.md)
+- **Daily Scrum:** [docs/sprints/sprint-1/daily-scrum.md](docs/sprints/sprint-1/daily-scrum.md)
+- **Ürün durumu:** [docs/sprints/sprint-1/product-status.md](docs/sprints/sprint-1/product-status.md)
+- **Sprint Review:** [docs/sprints/sprint-1/sprint-review.md](docs/sprints/sprint-1/sprint-review.md)
+- **Sprint Retrospective:** [docs/sprints/sprint-1/sprint-retrospective.md](docs/sprints/sprint-1/sprint-retrospective.md)
+- **Uygulama içi sprint paneli:** `/sprints` (Grup 43 kiracısı)
+
 ## Stack
 
 Next.js 15 (App Router) · TypeScript · Tailwind CSS v4 · shadcn/ui ·

@@ -16,7 +16,11 @@ export default async function AppLayout({
   return (
     <div className="flex h-screen w-full overflow-hidden">
       <TenantThemeProvider tenant={tenant} />
-      <AppSidebar role={session.role} tenantName={tenant?.name ?? "All tenants"} />
+      <AppSidebar
+        role={session.role}
+        tenantName={tenant?.name ?? "All tenants"}
+        tenantSlug={tenant?.slug ?? null}
+      />
       <div className="flex min-w-0 flex-1 flex-col">
         <AppHeader
           fullName={session.profile.full_name}

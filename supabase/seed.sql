@@ -5,7 +5,9 @@ set search_path = public;
 -- ── Tenants ──
 insert into tenants (id, name, slug, industry, display_name, logo_url, primary_color, secondary_color, accent_color, background_color, text_color, theme_config) values
   ('e0000000-0000-4000-8000-000000000001', 'TAV Airports', 'tav-airports', 'Airport Operations', 'Employee Atlas for TAV Airports', '/tav-logo.png', '#031f73', '#307fe2', '#faa634', '#f7f9fc', '#1a2233', '{}'::jsonb),
-  ('e0000000-0000-4000-8000-000000000002', 'Turkcell', 'turkcell', 'Telecommunications and Technology', 'Employee Atlas for Turkcell', null, '#00457c', '#0082ca', '#ffc900', '#f7fafc', '#142433', '{}'::jsonb);
+  ('e0000000-0000-4000-8000-000000000002', 'Turkcell', 'turkcell', 'Telecommunications and Technology', 'Employee Atlas for Turkcell', null, '#00457c', '#0082ca', '#ffc900', '#f7fafc', '#142433', '{}'::jsonb),
+  -- Grup 43: bootcamp documentation workspace (sprint panel only; no workforce data).
+  ('e0000000-0000-4000-8000-000000000003', 'Grup 43', 'grup-43', 'Bootcamp Project Workspace', 'Employee Atlas — Grup 43', null, '#4338ca', '#6366f1', '#10b981', '#f8fafc', '#0f172a', '{}'::jsonb);
 
 -- ── App users (profiles are created by the on_auth_user_created trigger) ──
 do $$
@@ -20,7 +22,8 @@ begin
       ('a0000000-0000-4000-8000-000000000013'::uuid, 'tav.manager@demo.com',     'manager',      'e0000000-0000-4000-8000-000000000001'::uuid,  'Cem Yalçın'),
       ('a0000000-0000-4000-8000-000000000021'::uuid, 'turkcell.admin@demo.com',  'tenant_admin', 'e0000000-0000-4000-8000-000000000002'::uuid,  'Emre Şahin'),
       ('a0000000-0000-4000-8000-000000000022'::uuid, 'turkcell.hr@demo.com',     'hr',           'e0000000-0000-4000-8000-000000000002'::uuid,  'Zeynep Demirtaş'),
-      ('a0000000-0000-4000-8000-000000000023'::uuid, 'turkcell.manager@demo.com','manager',      'e0000000-0000-4000-8000-000000000002'::uuid,  'Kaan Özkan')
+      ('a0000000-0000-4000-8000-000000000023'::uuid, 'turkcell.manager@demo.com','manager',      'e0000000-0000-4000-8000-000000000002'::uuid,  'Kaan Özkan'),
+      ('a0000000-0000-4000-8000-000000000031'::uuid, 'grup43@demo.com',          'tenant_admin', 'e0000000-0000-4000-8000-000000000003'::uuid,  'Grup 43')
     ) as t(id, email, role, tenant_id, full_name)
   loop
     insert into auth.users (instance_id, id, aud, role, email, encrypted_password, email_confirmed_at,
