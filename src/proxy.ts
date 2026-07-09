@@ -3,7 +3,7 @@ import { NextResponse, type NextRequest } from "next/server";
 
 const PUBLIC_PATHS = ["/login"];
 
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   let supabaseResponse = NextResponse.next({ request });
 
   const supabase = createServerClient(
@@ -44,6 +44,37 @@ export async function middleware(request: NextRequest) {
   }
 
   if (user && pathname === "/login") {
+    // Check if the user actually has a profile.
+    // If they don't (e.g. database was reset but browser has stale session),
+    // we must sign them out to clear cookies and break the loop.
+    const { data: profile } = await supabase
+      .from("profiles")
+      .select("role")
+      .eq("user_id", user.id)
+      .single();
+
+    if (!profile) {
+      await supabase.auth.signOut();
+      const url = request.nextUrl.clone();
+      url.pathname = "/login";
+      url.searchParams.set("error", "stale_session");
+      const redirectResponse = NextResponse.redirect(url);
+
+      // Copy cookies from supabaseResponse (which contains the delete/clear cookies from signOut)
+      supabaseResponse.cookies.getAll().forEach((c) => {
+        redirectResponse.cookies.set(c.name, c.value, {
+          path: c.path,
+          domain: c.domain,
+          maxAge: c.maxAge,
+          secure: c.secure,
+          sameSite: c.sameSite,
+          expires: c.expires,
+          httpOnly: c.httpOnly,
+        });
+      });
+      return redirectResponse;
+    }
+
     const url = request.nextUrl.clone();
     url.pathname = "/";
     url.search = "";
@@ -58,3 +89,5 @@ export const config = {
     "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };
+
+export default proxy;

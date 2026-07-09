@@ -30,7 +30,8 @@
       "Bash(echo \"exit: $?\")",
       "Bash(npm run *)",
       "Bash(psql \"postgresql://postgres:postgres@127.0.0.1:54322/postgres\" -t -c \"select field_key, visible_to_roles from field_visibility_settings where field_key in \\('hobbies','phone'\\);\")",
-      "Bash(psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -t -c ' *)"
+      "Bash(psql postgresql://postgres:postgres@127.0.0.1:54322/postgres -t -c ' *)",
+      "Bash(docker exec supabase_db_employee-atlas *)"
     ]
   }
 }
