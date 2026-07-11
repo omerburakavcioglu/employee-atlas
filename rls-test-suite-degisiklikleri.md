@@ -103,8 +103,19 @@ lokal stack'te döner.
 ## Definition of Done durumu
 
 1. ✅ `supabase test db` lokalde tamamen yeşil (5 dosya / 42 assertion).
-2. ⏳ GitHub Actions ilk koşu — push sonrası doğrulanacak (push manuel yapılacak).
+2. ✅ GitHub Actions ilk koşu başarılı: run #1, commit `9198fc4` —
+   https://github.com/omerburakavcioglu/employee-atlas/actions/runs/29164619399
 3. ⏳ PR açıklaması için test özeti hazır: **5 dosya, 42 assertion, Result: PASS**
    (bu dosyanın "Sonuç" bölümü PR açıklamasına kopyalanabilir).
-4. ✅→📄 README yerine bu dosya: "Database tests" bilgisi yukarıdaki
-   "Nasıl koşturulur" bölümünde.
+4. ✅ README'ye "Database tests" bölümü eklendi (nasıl koşulur + yeni
+   tenant-owned tabloda 001'i güncelleme zorunluluğu notu).
+
+Sprint kanıt dokümanı: `docs/sprints/sprint-2/db-tests.md`.
+
+## Branch protection (yapılacak — repo admin'i gerekli)
+
+"Database tests" check'i `main`'de required yapılmadan CI yalnızca bilgi
+verir. Bu ayarı repo sahibi (`omerburakavcioglu`) yapmalı — bkz.
+`docs/sprints/sprint-2/db-tests.md` son bölüm. Workflow bu iş için
+hazırlandı: job adı `Database tests`, `pull_request` tetikleyicisi
+filtresiz (required check her PR'da rapor verebilsin diye).

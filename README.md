@@ -80,6 +80,27 @@ reset demo data back to its original state.
 (review the seed data before pushing — it is meant for local demos, not
 production).
 
+## Database tests
+
+pgTAP-based tenant-isolation tests live in `supabase/tests/` and run against
+the **local** Docker stack only (never a hosted project):
+
+```bash
+supabase start            # if not already running
+supabase db reset --local # clean migrations + seed
+supabase test db          # run the suite (5 files, 42 assertions)
+```
+
+Every test file is wrapped in `begin; … rollback;`, so the suite never leaves
+data behind. CI runs the same suite on every push to `main` and on every PR
+(`.github/workflows/db-tests.yml`); the "Database tests" check is required on
+`main`, so a red suite blocks the merge.
+
+> **When adding a new tenant-owned table:** you MUST add it to the RLS
+> checklist in `supabase/tests/001-rls-enabled.sql` and bump its `plan()`
+> count. That test exists precisely to catch tables that ship without RLS —
+> skip this and a non-isolated table slips in silently.
+
 ## Demo accounts (seeded)
 
 Development-only password for every account: `AtlasDemo2026!`

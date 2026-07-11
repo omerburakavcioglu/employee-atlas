@@ -1,15 +1,16 @@
 name: Database tests (RLS isolation)
 
+# pull_request'te paths filtresi BİLEREK yok: "Database tests" zorunlu
+# (required) check olduğu için her PR'da rapor vermek zorunda — filtreli
+# olsaydı supabase dışı PR'lar "waiting for status" ile sonsuza dek beklerdi.
 on:
   push:
     branches: [main]
   pull_request:
-    paths:
-      - "supabase/**"
-      - ".github/workflows/db-tests.yml"
 
 jobs:
   rls-tests:
+    name: Database tests
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
