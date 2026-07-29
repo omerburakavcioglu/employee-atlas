@@ -1,7 +1,10 @@
 "use client";
 
+import { useState, useTransition } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-import { X } from "lucide-react";
+import { Loader2, Sparkles, X } from "lucide-react";
+import { toast } from "sonner";
+import { smartSearch } from "@/lib/actions/ai-search";
 import type { FilterOptions } from "@/lib/queries/directory";
 import { EDUCATION_LABELS } from "@/lib/types";
 import { Button } from "@/components/ui/button";
@@ -57,6 +60,60 @@ function FilterSelect({
   );
 }
 
+// Natural-language search. The result is written into the same query string the
+// manual filters use, so the chips below show exactly what was applied and the
+// user can drop any one of them.
+function SmartSearchBar() {
+  const router = useRouter();
+  const [value, setValue] = useState("");
+  const [pending, startTransition] = useTransition();
+
+  function run() {
+    const query = value.trim();
+    if (!query || pending) return;
+    startTransition(async () => {
+      const { filters, source, error } = await smartSearch(query);
+      const params = new URLSearchParams();
+      for (const [key, v] of Object.entries(filters)) {
+        if (v !== undefined && v !== null && v !== "") params.set(key, String(v));
+      }
+      if (error) toast.error(error);
+      else if (params.size === 0)
+        toast.info("Bu sorgudan bir filtre çıkarılamadı.");
+      else if (source === "rules")
+        toast.success("Filtreler uygulandı (kural tabanlı).");
+      router.push(`/directory?${params.toString()}`);
+    });
+  }
+
+  return (
+    <div className="rounded-lg border bg-card p-3">
+      <div className="flex flex-wrap items-center gap-2">
+        <Sparkles className="size-4 shrink-0 text-primary" />
+        <Input
+          value={value}
+          onChange={(e) => setValue(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter") run();
+          }}
+          disabled={pending}
+          placeholder="Doğal dille ara: “İzmir'de 5G bilen kıdemli mühendis”"
+          className="h-8 min-w-0 flex-1 bg-card text-xs"
+          aria-label="Doğal dil araması"
+        />
+        <Button size="sm" className="h-8 text-xs" onClick={run} disabled={pending}>
+          {pending ? (
+            <Loader2 className="size-3.5 animate-spin" />
+          ) : (
+            <Sparkles className="size-3.5" />
+          )}
+          Akıllı ara
+        </Button>
+      </div>
+    </div>
+  );
+}
+
 const FILTER_LABELS: Record<string, string> = {
   q: "Search",
   location: "Location",
@@ -103,7 +160,9 @@ export function FilterBar({ options }: { options: FilterOptions }) {
   }
 
   return (
-    <div className="rounded-lg border bg-card p-3">
+    <div className="space-y-2">
+      <SmartSearchBar />
+      <div className="rounded-lg border bg-card p-3">
       <div className="flex flex-wrap items-center gap-2">
         <Input
           defaultValue={q}
@@ -195,6 +254,7 @@ export function FilterBar({ options }: { options: FilterOptions }) {
           ))}
         </div>
       )}
+      </div>
     </div>
   );
 }
