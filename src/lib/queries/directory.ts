@@ -92,7 +92,7 @@ export async function getFilterOptions() {
     tenantId ? q.eq("tenant_id", tenantId) : q;
   const [locations, departments, skills, languages, hobbies, certifications] =
     await Promise.all([
-      scoped(supabase.from("locations").select("id, name, code, country")).order("name"),
+      scoped(supabase.from("locations").select("id, name, code, city, country")).order("name"),
       scoped(supabase.from("departments").select("id, name")).order("name"),
       scoped(supabase.from("skills").select("name")).order("name"),
       scoped(supabase.from("languages").select("name")).order("name"),
