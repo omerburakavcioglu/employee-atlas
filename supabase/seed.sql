@@ -5,7 +5,7 @@ set search_path = public;
 -- ── Tenants ──
 insert into tenants (id, name, slug, industry, display_name, logo_url, primary_color, secondary_color, accent_color, background_color, text_color, theme_config) values
   ('e0000000-0000-4000-8000-000000000001', 'TAV Airports', 'tav-airports', 'Airport Operations', 'Employee Atlas for TAV Airports', '/tav-logo.png', '#031f73', '#307fe2', '#faa634', '#f7f9fc', '#1a2233', '{}'::jsonb),
-  ('e0000000-0000-4000-8000-000000000002', 'Turkcell', 'turkcell', 'Telecommunications and Technology', 'Employee Atlas for Turkcell', null, '#00457c', '#0082ca', '#ffc900', '#f7fafc', '#142433', '{}'::jsonb),
+  ('e0000000-0000-4000-8000-000000000002', 'Turkcell', 'turkcell', 'Telecommunications and Technology', 'Employee Atlas for Turkcell', '/turkcell-logo.webp', '#00457c', '#0082ca', '#ffc900', '#f7fafc', '#142433', '{}'::jsonb),
   -- Grup 43: bootcamp documentation workspace (sprint panel only; no workforce data).
   ('e0000000-0000-4000-8000-000000000003', 'Grup 43', 'grup-43', 'Bootcamp Project Workspace', 'Employee Atlas — Grup 43', null, '#4338ca', '#6366f1', '#10b981', '#f8fafc', '#0f172a', '{}'::jsonb);
 

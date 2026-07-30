@@ -15,6 +15,7 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { BrandMark } from "@/components/brand/brand-logo";
 import type { AppRole } from "@/lib/types";
 
 type NavItem = {
@@ -69,12 +70,14 @@ export function AppSidebar({
     <aside className="flex w-14 shrink-0 flex-col bg-sidebar text-sidebar-foreground lg:w-[216px]">
       <div className="px-3 pb-6 pt-6 lg:px-5">
         <Link href="/" className="block">
-          <span className="hidden font-heading text-[17px] font-bold tracking-tight text-white lg:block">
-            Employee Atlas
+          {/* White mark reads on every tenant's dark sidebar. */}
+          <span className="hidden items-center gap-2 lg:flex">
+            <BrandMark tone="white" className="h-6 w-auto" />
+            <span className="font-heading text-[17px] font-bold tracking-tight text-white">
+              Employee Atlas
+            </span>
           </span>
-          <span className="block text-center font-heading text-[15px] font-bold text-white lg:hidden">
-            EA
-          </span>
+          <BrandMark tone="white" className="mx-auto h-7 w-auto lg:hidden" />
           <span className="mt-0.5 hidden font-heading text-[10px] font-semibold uppercase tracking-[0.18em] text-sidebar-foreground/90 lg:block">
             {tenantName}
           </span>

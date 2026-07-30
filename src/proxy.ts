@@ -85,8 +85,11 @@ export async function proxy(request: NextRequest) {
 }
 
 export const config = {
+  // `manifest.webmanifest` is excluded alongside the static assets: browsers
+  // fetch it without a session and it carries only public branding metadata
+  // (name, icons, theme colour) — never tenant or user data.
   matcher: [
-    "/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
+    "/((?!_next/static|_next/image|favicon.ico|manifest.webmanifest|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)",
   ],
 };
 

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { Search, LogOut } from "lucide-react";
 import { logout } from "@/lib/actions/auth";
 import { ROLE_LABELS, type AppRole, type Tenant } from "@/lib/types";
+import { BrandMark } from "@/components/brand/brand-logo";
 import { TenantLogo } from "@/components/tenant/TenantLogo";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import {
@@ -37,8 +38,12 @@ export function AppHeader({
 
   return (
     <header className="relative z-10 flex h-14 shrink-0 items-center gap-4 border-b bg-card px-5 shadow-[0_1px_0_color-mix(in_srgb,var(--primary)_4%,transparent)]">
-      <span className="hidden shrink-0 font-heading text-[15px] font-bold tracking-tight text-primary md:block">
-        Employee Atlas
+      {/* Product mark stays monochrome so it co-exists with any tenant palette. */}
+      <span className="flex shrink-0 items-center gap-2">
+        <BrandMark tone="navy" className="h-6 w-auto" />
+        <span className="hidden font-heading text-[15px] font-bold tracking-tight text-primary md:block">
+          Employee Atlas
+        </span>
       </span>
       <div className="mx-1 hidden h-6 w-px bg-border md:block" />
       <TenantLogo tenant={tenant} className="shrink-0" />

@@ -1,5 +1,6 @@
 import { Suspense } from "react";
 import { Map, Search, ListChecks } from "lucide-react";
+import { BrandMark, BrandLockup } from "@/components/brand/brand-logo";
 import { LoginForm } from "./login-form";
 
 export const metadata = { title: "Sign in" };
@@ -29,7 +30,9 @@ export default function LoginPage() {
     <div className="flex min-h-screen w-full">
       {/* Brand panel */}
       <div className="relative hidden w-[46%] flex-col justify-between bg-primary p-12 text-primary-foreground lg:flex">
-        <div className="eyebrow !text-primary-foreground/60">Employee Atlas</div>
+        {/* Icon only: the wordmark is carried by the display type below.
+            `self-start` keeps the flex column from stretching it to panel width. */}
+        <BrandMark tone="white" priority className="h-11 w-auto self-start" />
 
         <div>
           <h1 className="font-heading text-5xl leading-[1.08] tracking-tight">
@@ -81,17 +84,7 @@ export default function LoginPage() {
       <div className="flex flex-1 items-center justify-center bg-background px-6 py-12">
         <div className="w-full max-w-sm">
           <div className="mb-10 flex items-center justify-between">
-            <span className="flex items-center gap-2">
-              <span
-                aria-hidden
-                className="grid size-7 place-items-center rounded-md bg-primary font-heading text-[13px] font-bold text-primary-foreground"
-              >
-                EA
-              </span>
-              <span className="font-heading text-[15px] font-bold tracking-tight text-primary">
-                Employee Atlas
-              </span>
-            </span>
+            <BrandLockup tone="color" priority className="h-9 w-auto" />
             <span className="eyebrow">Sign in</span>
           </div>
           <h2 className="font-heading text-2xl text-primary">Welcome back</h2>
