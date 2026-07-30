@@ -27,7 +27,7 @@ sprint dokümantasyonu hedeflenmektedir.
 | --- | --- |
 | **Takım numarası** | 43 |
 | **Ürün adı** | Employee Atlas |
-| **Canlı demo** | https://employee-atlas.vercel.app/ |
+| **Canlı demo** | https://empatlas.site |
 
 ### Takım Üyeleri ve Rolleri
 
@@ -48,9 +48,47 @@ fabrikalar ve benzeri kuruluşlar - için tasarlanmıştır. Bu organizasyonlar�
 ülke, ofis, havalimanı, şube ve kampüslerdeki iş gücünü keşfetmek, yönetmek
 ve analiz etmek için platformu kullanır.
 
+### Demo Hesapları
+
+Aşağıdaki hesapların tamamı canlı ortamda çalışmaktadır. Her hesap yalnızca kendi
+kiracısının verisini görür; kiracı yalıtımı doğrudan denenebilir.
+
+**Tüm hesaplar için ortak şifre:** `AtlasDemo2026!`
+
+| E-posta | Kiracı | Rol | Erişim |
+| --- | --- | --- | --- |
+| tav.admin@demo.com | TAV Airports | Tenant Admin | Yönetim paneli dahil tam yetki |
+| tav.hr@demo.com | TAV Airports | HR | Yönetim paneline erişebilir |
+| tav.manager@demo.com | TAV Airports | Manager | Arama, filtre, aday listesi |
+| turkcell.admin@demo.com | Turkcell | Tenant Admin | Yönetim paneli dahil tam yetki |
+| turkcell.hr@demo.com | Turkcell | HR | Yönetim paneline erişebilir |
+| turkcell.manager@demo.com | Turkcell | Manager | Arama, filtre, aday listesi |
+| grup43@demo.com | Grup 43 | Tenant Admin | Sprint panosu ve dokümantasyon alanı |
+| superadmin@demo.com | — (platform) | Super Admin | Tüm kiracıları okur; kiracı bağlamı sabitlenmeden yazamaz |
+
+> Jüri için hazırlanmış tek sayfalık tanıtım dokümanı:
+> [employee-atlas-juri-dokumani.html](docs/employee-atlas-juri-dokumani.html)
+
+### Güncel Ürün Durumu
+
+Aşağıdaki tablo, ürünün **bugünkü** canlı durumunu gösterir (sprint bölümleri
+kendi dönemlerinin kaydını korur):
+
+| Kiracı | Çalışan | Lokasyon | Departman |
+| --- | ---: | ---: | ---: |
+| TAV Airports | 110 | 10 | 8 |
+| Turkcell | 140 | 14 | 13 |
+| Grup 43 | — | — | — (dokümantasyon alanı) |
+
+Canlıdaki başlıca yetenekler: harita panosu, çalışan dizini (kart/liste/tablo +
+çok kriterli filtreler), **yapay zeka destekli doğal dil araması** (Google Gemini,
+kural tabanlı yedek ayrıştırıcı ile), çalışan profilleri, aday listeleri (CSV
+dışa aktarma), analitik, yönetim paneli (CRUD + CSV içe aktarma + alan
+görünürlüğü matrisi) ve kiracıya özel tema.
+
 ## Sprint 1
 
-**Tarih:** 19 Haziran 2026 – 5 Temmuz 2026 · **Durum:** Tamamlandı · **Canlı demo:** https://employee-atlas.vercel.app/
+**Tarih:** 19 Haziran 2026 – 5 Temmuz 2026 · **Durum:** Tamamlandı · **Canlı demo:** https://empatlas.site
 
 > Sprint hedefi: Temel kurulum, veri modeli, kimlik doğrulama ve çalışan listeleme (MVP çekirdeği).
 >
@@ -152,7 +190,7 @@ Tüm planlanan 7 hikâye (21/21 SP) tamamlandı; tamamlanmayan görev yok. Ayrı
 
 ## Sprint 2
 
-**Tarih:** 6 Temmuz 2026 - 19 Temmuz 2026 · **Durum:** Tamamlandı· **Canlı demo:** https://employee-atlas.vercel.app/
+**Tarih:** 6 Temmuz 2026 - 19 Temmuz 2026 · **Durum:** Tamamlandı· **Canlı demo:** https://empatlas.site
 
 > Sprint hedefi: Yapay zeka destekli arama, doğal dil filtreleme ve demo kalitesini artırmak.
 
