@@ -306,7 +306,7 @@ Sprint sonu (19 Temmuz) itibarıyla tamamlanamayan AI görevleri, Sprint 3'e (E1
 - **Nereden görüştük:** Önceki sprintlerle aynı şekilde günlük senkronizasyon **WhatsApp** grubu (hızlı durum/blocker) ve **Slack** (teknik koordinasyon) üzerinden yürütüldü. Sprint 2 retrospektif aksiyonu (günlük notların düzenli tutulması ve QA kanıtlarının iş bittikçe eklenmesi) Sprint 3'te de sürdürüldü.
 - **Ekran görüntüsü:**
 
-_(Sprint 3 Daily Scrum arşivi için Google Drive linki eklenecek.)_
+[Google Drive Linki](https://drive.google.com/drive/folders/1MM2pZs08pq-Dhpt-ngBlGd5QeMjz5Kbh?usp=sharing)
 
 ### Ürün geliştirme durumu
 
