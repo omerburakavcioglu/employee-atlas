@@ -323,7 +323,7 @@ Sprint 3'te ürün, Sprint 1'in MVP çekirdeği ve Sprint 2'nin kalite/AI altyap
 
 **Doğal dil ("Akıllı ara") araması — canlı** - Dizin sayfasındaki arama kutusuna gündelik Türkçe ile yazılan sorgu (ör. "İzmir ofisindeki çalışanlar", "5G bilen kişiler") Google Gemini ile yapılandırılmış filtrelere çevrilip dizine uygulanır. Model **hiç çalışan verisi görmez**; yalnızca aktif kiracının filtre sözlüğünü görür ve yalnızca filtre değeri döndürür — döndürdüğü her değer aynı sözlükle yeniden doğrulanır, arama yine RLS + uygulama katmanı kiracı filtresinden geçer. API anahtarı yoksa sistem kural tabanlı ayrıştırıcıya düşer, özellik kapanmaz. (Sprint 2'de "pgvector + embedding" yönünde araştırılan yaklaşım yerine, güvenlik sınırını gevşetmeyen bu **filtre-sözlüğü** yaklaşımında karar kılındı.)
 
-![Çalışan dizini — arama + filtreler](docs/sprints/sprint-1/urun_durumu_1.png)
+![Çalışan dizini — arama + filtreler](docs/sprints/sprint-1/urun_durumu_1.png) 
 
 **Analytics (iş gücü grafikleri)** - Lokasyon, departman, yetenek ve sertifika dağılımları; aktif kiracının renk paletiyle.
 
