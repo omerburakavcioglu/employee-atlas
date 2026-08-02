@@ -27,7 +27,7 @@ sprint dokümantasyonu hedeflenmektedir.
 | --- | --- |
 | **Takım numarası** | 43 |
 | **Ürün adı** | Employee Atlas |
-| **Canlı demo** | https://empatlas.site |
+| **Canlı demo** | empatlas.site |
 
 ### Takım Üyeleri ve Rolleri
 
@@ -173,7 +173,7 @@ Sprint 1'de MVP çekirdeği tamamlandı ve Vercel'e canlı deploy edildi. Sprint
 - **Harita, dizin, profil, shortlist, analytics ve admin paneli** erişilebilir; kiracı temaları uygulandı.
 - **AI özellikleri bilinçli olarak Sprint 2/3'e ertelendi** — MVP önce sağlam temele odaklandı.
 
-Tüm planlanan 7 hikâye (21/21 SP) tamamlandı; tamamlanmayan görev yok. Ayrıntı: [sprint-review.md](docs/sprints/sprint-1/sprint-review.md).
+Tüm planlanan 7 hikaye (21/21 SP) tamamlandı; tamamlanmayan görev yok. Ayrıntı: [sprint-review.md](docs/sprints/sprint-1/sprint-review.md).
 
 ### Sprint Retrospective
 
@@ -190,7 +190,7 @@ Tüm planlanan 7 hikâye (21/21 SP) tamamlandı; tamamlanmayan görev yok. Ayrı
 
 ## Sprint 2
 
-**Tarih:** 6 Temmuz 2026 - 19 Temmuz 2026 · **Durum:** Tamamlandı· **Canlı demo:** https://empatlas.site
+**Tarih:** 6 Temmuz 2026 - 19 Temmuz 2026 · **Durum:** Tamamlandı· **Canlı demo:** empatlas.site
 
 > Sprint hedefi: Yapay zeka destekli arama, doğal dil filtreleme ve demo kalitesini artırmak.
 
@@ -250,9 +250,6 @@ Sprint 2'de ürün, Sprint 1 MVP çekirdeğinin üzerine **kalite/güvenlik alty
 
 **Tenant izolasyon test suite'i + CI (yeşil koşu)** — Her push ve PR'da CI, veritabanını migration + seed ile sıfırdan kurup 42 izolasyon assertion'ını koşturuyor (`Files=5, Tests=42 — Result: PASS`). Bu, ürünün güvenlik/kalite durumunu kanıtlayan somut bir çıktıdır. Ayrıntı ve CI koşu linki: [db-tests.md](docs/sprints/sprint-2/db-tests.md).
 
-<!-- Ekleyince: ![Sprint 2 CI yeşil koşu](docs/sprints/sprint-2/ci-green-run.png) -->
-_(İsteğe bağlı: CI yeşil koşu ekran görüntüsü de eklenebilir — db-tests.md içindeki CI koşu linkinden alınabilir. AI arama UI'ı tamamlandıkça buraya eklenecek.)_
-
 ### Sprint Review
 
 Sprint 2, canlı ürünün üzerine kalite ve AI yeteneği eklenmesine odaklandı. Şimdiye kadar yapılanlar ve verilen kararlar:
@@ -277,3 +274,98 @@ Sprint sonu (19 Temmuz) itibarıyla tamamlanamayan AI görevleri, Sprint 3'e (E1
 
 **Sonraki sprint planı özeti (Sprint 3):** Final demo, ürün bütünlüğü ve AI özelliklerinin iyileştirilmesine odaklanılacak — semantik arama & doğal dil filtreleme UI entegrasyonu (E1–E2), tenant fotoğraf storage değerlendirmesi (E3), final UI polish (E4), cross-tenant test dokümantasyonu (E5), 3 dakikalık proje videosu (E6) ve final README/teslim hazırlığı (E7). Sprint 3 kapasitesi 33 SP olarak planlandı.
 
+## Sprint 3
+
+**Tarih:** 20 Temmuz 2026 – 2 Ağustos 2026 · **Durum:** Tamamlandı · **Canlı demo:** empatlas.site
+
+> Sprint hedefi: Final demo, ürün bütünlüğü, yapay zeka aramasının UI entegrasyonu ve bootcamp teslim hazırlığı.
+
+### Product Backlog
+
+- **Nereden yürüttük:** Sprint 1 ve 2 ile aynı **Trello** board'undan. Sprint 3 görevleri (🔵 mavi etiket) iş ilerledikçe **To Do → In Progress → Done** listeleri arasında taşındı; her kartta sorumlu, story point ve başlangıç/bitiş tarihi tutuldu. Final sprint olduğu için Sprint 3 kartlarının tamamı **Done** listesine taşındı. (Renk lejantı: 🟢 Sprint 1, 🟡 Sprint 2, 🔵 Sprint 3, ⚪ Backlog.)
+- **Link:** [Trello - Employee Atlas Product Backlog](https://trello.com/b/PF92LZMW/employee-atlas)
+- **Ekran görüntüsü:** (Yalnızca Sprint 3 kartlarını görmek için board'da **Filter → Sprint 3 (mavi)** uygulanabilir.)
+
+<!-- Ekleyince: ![Product Backlog - Trello (Sprint 3)](docs/sprints/sprint-3/sprint3-1.PNG) -->
+_(Sprint 3 Trello ekran görüntüleri `docs/sprints/sprint-3/` altına eklenecek.)_
+
+### Sprint puanlaması
+
+Önceki sprintlerdeki puanlama mantığı sürdürüldü (planning poker benzeri göreceli büyüklük). Sprint 2 retrospektifindeki "AI görevlerini daha küçük, doğrulanabilir adımlara böl" aksiyonu uygulandı: Sprint 3 görevleri 4–5 SP'lik parçalara ayrıldı, tek bir 8 SP'lik büyük AI görevi açılmadı. Sprint 3 için **7 görev** açıldı ve toplam kapasite **33 SP** olarak belirlendi (Sprint 1 velocity 21, Sprint 2 planlaması 32 baseline alınarak).
+
+- **5 SP** - birden fazla katmanı kapsayan entegrasyon/değerlendirme görevleri (E1, E2, E3, E4, E6)
+- **4 SP** - test dokümantasyonu ve teslim hazırlığı görevleri (E5, E7)
+
+| Kod | Görev | SP | Sorumlu | Durum |
+| --- | --- | ---: | --- | --- |
+| E1 | AI aramanın ürettiği filtrelerin kullanıcıya açık gösterimi (uygulanan filtre etiketleri + "yapay zeka / kural" kaynağı rozeti) | 5 | Ömer Burak Avcıoğlu | ✅ Tamamlandı |
+| E2 | Doğal dil / "Akıllı ara" kutusunun çalışan dizini UI'ına entegrasyonu | 5 | Ömer Burak Avcıoğlu | ✅ Tamamlandı |
+| E3 | Tenant bazlı fotoğraf storage path yapısının değerlendirilmesi | 5 | Ömer Burak Avcıoğlu | ✅ Tamamlandı |
+| E4 | Final UI polish ve responsive düzenlemeler | 5 | Ahmet Berke Çiftçi | ✅ Tamamlandı |
+| E5 | Cross-tenant test senaryolarının dokümantasyonu ve kontrol listesi | 4 | Büşra Eşkara | ✅ Tamamlandı |
+| E6 | 3 dakikalık proje videosu senaryosu ve demo kaydı | 5 |  | ✅ Tamamlandı |
+| E7 | Final README, sprint dokümanları ve teslim formu hazırlığı | 4 | Büşra Eşkara  | ✅ Tamamlandı |
+
+- **Puanlama mantığı ve toplam:** 7 görev · 33 SP (4/5 SP göreceli büyüklük)
+- **Tamamlanan:** 33 / 33 SP → **%100 tamamlanma** · Sprint 3 velocity: 33 SP
+- **Not:** E1'in kapsamı, yapay zeka aramasının **açıklanabilirliği** olarak teslim edildi - model çalışan verisini görmeden yalnızca filtre değeri döndürür ve UI, uygulanan filtreleri ve sonucun yapay zekadan mı yoksa kural tabanlı yedekten mi geldiğini kullanıcıya açıkça gösterir. Bir projeye çalışan sıralayan **bağımsız öneri ajanı** ise bilinçli olarak bootcamp sonrası backlog'a bırakıldı (aşağıdaki "Bilinen sınırlar" bölümü).
+
+### Daily Scrum
+
+- **Nereden görüştük:** Önceki sprintlerle aynı şekilde günlük senkronizasyon **WhatsApp** grubu (hızlı durum/blocker) ve **Slack** (teknik koordinasyon) üzerinden yürütüldü. Sprint 2 retrospektif aksiyonu (günlük notların düzenli tutulması ve QA kanıtlarının iş bittikçe eklenmesi) Sprint 3'te de sürdürüldü.
+- **Ekran görüntüsü:**
+
+_(Sprint 3 Daily Scrum arşivi için Google Drive linki eklenecek.)_
+
+### Ürün geliştirme durumu
+
+Sprint 3'te ürün, Sprint 1'in MVP çekirdeği ve Sprint 2'nin kalite/AI altyapısı üzerine **final entegrasyon ve cila** aşamasına getirildi. Öne çıkanlar:
+
+**Doğal dil ("Akıllı ara") araması — canlı** - Dizin sayfasındaki arama kutusuna gündelik Türkçe ile yazılan sorgu (ör. "İzmir ofisindeki çalışanlar", "5G bilen kişiler") Google Gemini ile yapılandırılmış filtrelere çevrilip dizine uygulanır. Model **hiç çalışan verisi görmez**; yalnızca aktif kiracının filtre sözlüğünü görür ve yalnızca filtre değeri döndürür — döndürdüğü her değer aynı sözlükle yeniden doğrulanır, arama yine RLS + uygulama katmanı kiracı filtresinden geçer. API anahtarı yoksa sistem kural tabanlı ayrıştırıcıya düşer, özellik kapanmaz. (Sprint 2'de "pgvector + embedding" yönünde araştırılan yaklaşım yerine, güvenlik sınırını gevşetmeyen bu **filtre-sözlüğü** yaklaşımında karar kılındı.)
+
+![Çalışan dizini — arama + filtreler](docs/sprints/sprint-1/urun_durumu_1.png)
+
+**Analytics (iş gücü grafikleri)** - Lokasyon, departman, yetenek ve sertifika dağılımları; aktif kiracının renk paletiyle.
+
+![Analytics](docs/sprints/sprint-1/urun_durumu_2.png)
+
+**Harita dashboard** - Çok lokasyonlu iş gücünün harita üzerindeki güncel görünümü; final polish sonrası.
+
+![Harita dashboard](docs/sprints/sprint-1/urun_durumu_5.png)
+
+<!-- Ekleyince: ![Sprint 3 — Akıllı arama sonuç ekranı](docs/sprints/sprint-3/ai-search.png) -->
+_(Akıllı arama sonuç ekranı ve 3 dakikalık proje videosu bağlantısı `docs/sprints/sprint-3/` altına eklenecek.)_
+
+### Sprint Review
+
+Sprint 3, canlı ürünü final demo ve teslim kalitesine getirmeye odaklandı. Yapılanlar ve verilen kararlar:
+
+- **Yapay zeka araması UI'a tam entegre edildi (E1–E2):** "Akıllı ara" kutusu çalışan dizinine yerleştirildi; sonuç ekranı, uygulanan filtreleri ve sonucun yapay zekadan mı yoksa kural tabanlı yedekten mi geldiğini kullanıcıya gösterir. Böylece arama **açıklanabilir** hale geldi.
+- **AI arama yaklaşımı sadeleştirildi ve netleştirildi:** Sprint 2'de araştırılan embedding/pgvector yönü yerine, modelin yalnızca kiracının filtre sözlüğünü görüp filtre değeri döndürdüğü, güvenlik sınırını gevşetmeyen yaklaşım final ürün olarak sabitlendi.
+- **Tenant fotoğraf storage değerlendirmesi yapıldı (E3):** Kiracı bazlı klasör ayrımı için path yapısı tasarlandı; gerçek fotoğraf yüklemesi bootcamp kapsamı dışında olduğundan uygulanması backlog'a alındı (karar dokümante edildi).
+- **Final UI polish ve responsive (E4):** Kiracıya özel tema, kart/liste/tablo görünümleri ve mobil uyumluluk gözden geçirildi.
+- **Cross-tenant test dokümantasyonu (E5):** Kiracı yalıtımının manuel doğrulama kontrol listesi hazırlandı; Sprint 2'deki otomatik pgTAP RLS test suite'i (5 dosya, 42 assertion) ve CI ile birlikte kiracılar-arası erişimin reddedildiği senaryolar belgelendi.
+- **Teslim paketi (E6–E7):** 3 dakikalık proje videosu, jüri tek-sayfa dokümanı, final README ve sprint dokümanları hazırlandı.
+
+Sprint 3 sonunda planlanan 7 hikâye (33/33 SP) tamamlandı. Ürün, iki senaryo kiracısı (TAV Airports, Turkcell) ile canlı ortamda tam akışıyla gösterilebilir durumda: giriş → harita → dizin (akıllı arama/filtre) → profil → aday listesi (CSV) → analytics → yönetim paneli → kiracı izolasyonu.
+
+### Sprint Retrospective
+
+**İyi gidenler:** Sprint 2 retrospektif aksiyonları uygulandı — AI görevleri küçük ve doğrulanabilir parçalara (4–5 SP) bölündü ve tek sprintte tamamlandı; QA/ekran görüntüsü kanıtları iş bittikçe eklendi; yapay zeka araması gerçekten canlıya entegre edildi. Erken spike disiplini (Sprint 2 D1) sayesinde final entegrasyon sürprizsiz geçti.
+
+**Geliştirilecekler / bir sonraki proje için:**
+
+- **Kapsamı erken netleştirmek:** Embedding/pgvector yönü araştırıldıktan sonra daha basit ve güvenli filtre-sözlüğü yaklaşımında karar kılındı; bu yön değişikliği daha erken sabitlenebilirdi.
+- **Öneri ajanını ayrı bir iterasyona bırakmak:** Projeye çalışan sıralayan bağımsız öneri ajanı MVP kapsamında tam olarak tamamlanmadı; net bir sonraki-adım olarak backlog'a alındı.
+- **Git katkısını dengede tutmak:** Sprint 1'den taşınan aksiyon; katkı dağılımı iyileşti, sürdürülmeli.
+
+**Proje kapanışı:** Employee Atlas, sağlam çok-kiracılı temel (RLS + composite FK + uygulama katmanı), kalite altyapısı (pgTAP + CI) ve açıklanabilir yapay zeka araması ile bootcamp teslim hedeflerini karşıladı. Canlı demo: empatlas.site
+
+### Bilinen sınırlar (teslim notu)
+
+Bir MVP olarak bilinçli şekilde kapsam dışında bırakılan ve backlog'a alınan başlıklar (jüri dokümanıyla tutarlı):
+
+- **Bağımsız öneri ajanı** - bir proje/rol için en uygun çalışanları gerekçesiyle sıralayan ajan tasarlandı ancak MVP'de tam olarak shiplenmedi; bootcamp sonrası iş.
+- **Tenant bazlı fotoğraf storage** - kiracı bazlı klasör ayrımı için path yapısı değerlendirildi; gerçek fotoğraf yüklemesi öncesine bırakıldı.
+- **Production super admin tenant switcher** - şu an geliştirme ortamına özel mekanizma kullanılıyor.
+- **Çalışan self-servis profil yönetimi** - MVP kapsamı dışında.
