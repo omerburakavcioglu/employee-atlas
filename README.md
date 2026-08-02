@@ -236,17 +236,13 @@ Sprint 1'deki puanlama mantığı sürdürüldü (planning poker benzeri görece
 
 Sprint 2'de ürün, Sprint 1 MVP çekirdeğinin üzerine **kalite/güvenlik altyapısı** ve **AI arama yeteneği** yönünde ilerliyor. Aşağıda ürünün Sprint 2 itibarıyla çalışan güncel ekranları ile somut mühendislik çıktısı yer alır.
 
-**Çalışan dizini (arama + filtreler)** - Semantik arama çalışmalarının üzerine kurulacağı mevcut tam metin arama ve çok-kriterli filtreleme ekranı.
+**Çalışan dizini — liste görünümü** - Semantik/doğal dil aramanın üzerine kurulacağı mevcut tam metin arama ve çok-kriterli filtreleme ekranı (lokasyon, ülke, departman, yetenek, eğitim, dil, hobi, sertifika, kıdem). Üstte "Doğal dille ara" (Akıllı ara) kutusu yerleştirildi.
 
-![Çalışan dizini](docs/sprints/sprint-1/urun_durumu_1.png)
+![Çalışan dizini - liste görünümü](docs/sprints/sprint-2/urun-sprint2.PNG)
 
-**Analytics (iş gücü grafikleri)** - Lokasyon, departman, yetenek ve sertifika dağılım grafikleri; ürünün veri/çıktı durumunu gösteren analitik ekran.
+**Çalışan dizini - tablo görünümü** - Aynı dizinin tablo görünümü; ad, unvan, departman, lokasyon, eğitim, kıdem ve yetenek sütunları. Kart / liste / tablo görünümleri arasında geçiş yapılabilir.
 
-![Analytics](docs/sprints/sprint-1/urun_durumu_2.png)
-
-**Harita dashboard** - Çok lokasyonlu iş gücünün harita üzerindeki güncel görünümü.
-
-![Harita dashboard](docs/sprints/sprint-1/urun_durumu_5.png)
+![Çalışan dizini - tablo görünümü](docs/sprints/sprint-2/urun-sprint2.1.PNG)
 
 **Tenant izolasyon test suite'i + CI (yeşil koşu)** — Her push ve PR'da CI, veritabanını migration + seed ile sıfırdan kurup 42 izolasyon assertion'ını koşturuyor (`Files=5, Tests=42 — Result: PASS`). Bu, ürünün güvenlik/kalite durumunu kanıtlayan somut bir çıktıdır. Ayrıntı ve CI koşu linki: [db-tests.md](docs/sprints/sprint-2/db-tests.md).
 
@@ -315,7 +311,7 @@ _(Sprint 3 Trello ekran görüntüleri `docs/sprints/sprint-3/` altına eklenece
 - **Nereden görüştük:** Önceki sprintlerle aynı şekilde günlük senkronizasyon **WhatsApp** grubu (hızlı durum/blocker) ve **Slack** (teknik koordinasyon) üzerinden yürütüldü. Sprint 2 retrospektif aksiyonu (günlük notların düzenli tutulması ve QA kanıtlarının iş bittikçe eklenmesi) Sprint 3'te de sürdürüldü.
 - **Ekran görüntüsü:**
 
-_(Sprint 3 Daily Scrum arşivi için Google Drive linki eklenecek.)_
+[Google Drive Linki](https://drive.google.com/drive/folders/1MM2pZs08pq-Dhpt-ngBlGd5QeMjz5Kbh?usp=sharing)
 
 ### Ürün geliştirme durumu
 
@@ -323,18 +319,21 @@ Sprint 3'te ürün, Sprint 1'in MVP çekirdeği ve Sprint 2'nin kalite/AI altyap
 
 **Doğal dil ("Akıllı ara") araması — canlı** - Dizin sayfasındaki arama kutusuna gündelik Türkçe ile yazılan sorgu (ör. "İzmir ofisindeki çalışanlar", "5G bilen kişiler") Google Gemini ile yapılandırılmış filtrelere çevrilip dizine uygulanır. Model **hiç çalışan verisi görmez**; yalnızca aktif kiracının filtre sözlüğünü görür ve yalnızca filtre değeri döndürür — döndürdüğü her değer aynı sözlükle yeniden doğrulanır, arama yine RLS + uygulama katmanı kiracı filtresinden geçer. API anahtarı yoksa sistem kural tabanlı ayrıştırıcıya düşer, özellik kapanmaz. (Sprint 2'de "pgvector + embedding" yönünde araştırılan yaklaşım yerine, güvenlik sınırını gevşetmeyen bu **filtre-sözlüğü** yaklaşımında karar kılındı.)
 
-![Çalışan dizini — arama + filtreler](docs/sprints/sprint-1/urun_durumu_1.png)
+![Akıllı arama — "İzmir ofisinde çalışanlar" sorgusu lokasyon filtresine çevrildi (10 sonuç)](docs/sprints/sprint-2/urun-sprint2.2.PNG)
 
-**Analytics (iş gücü grafikleri)** - Lokasyon, departman, yetenek ve sertifika dağılımları; aktif kiracının renk paletiyle.
+**Harita panosu — lokasyon detayı** - Her lokasyon çalışan sayısıyla harita üzerinde; bir pine tıklanınca o lokasyonun departman dağılımı ve çalışan kartları açılır (ör. Skopje International Airport — 11 çalışan).
 
-![Analytics](docs/sprints/sprint-1/urun_durumu_2.png)
+![Harita panosu — lokasyon detay paneli](docs/sprints/sprint-3/urun-sprint3.2..PNG)
 
-**Harita dashboard** - Çok lokasyonlu iş gücünün harita üzerindeki güncel görünümü; final polish sonrası.
+**Aday listeleri (shortlists)** - Dizinden proje ekibi için aday listeleri oluşturma; her liste sahibi ve kişi sayısıyla listelenir, CSV olarak dışa aktarılabilir.
 
-![Harita dashboard](docs/sprints/sprint-1/urun_durumu_5.png)
+![Aday listeleri](docs/sprints/sprint-3/urun-sprint3.1.PNG)
 
-<!-- Ekleyince: ![Sprint 3 — Akıllı arama sonuç ekranı](docs/sprints/sprint-3/ai-search.png) -->
-_(Akıllı arama sonuç ekranı ve 3 dakikalık proje videosu bağlantısı `docs/sprints/sprint-3/` altına eklenecek.)_
+**Yeni aday listesi oluşturma** - İsim ve (opsiyonel) açıklamayla yeni bir aday listesi oluşturma akışı.
+
+![Yeni aday listesi oluşturma](docs/sprints/sprint-3/urun-sprinnt3.2.PNG)
+
+_(3 dakikalık proje videosu bağlantısı `docs/sprints/sprint-3/` altına eklenecek.)_
 
 ### Sprint Review
 
